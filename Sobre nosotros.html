@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" href="Imagenes/Eco-Creators.jpeg">
+<title>Sobre Nosotros</title>
+<link rel="stylesheet" href="estilos-responsive.css">
+<style>
+  :root{ --sidebar-width:240px; }
+  html{ scroll-behavior: smooth; }
+
+  /* Fondo global */
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-image: url("Imagenes/fondo.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+    background-color: #f2f2f2; 
+  }
+
+  
+  header { background: #2e7d32; color: white; padding: 20px; text-align: center; position:relative; border-radius:10px; z-index:1; }
+  section {
+    background: rgba(255,255,255,0.95);
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 900px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.15);
+    transition: 0.3s;
+    z-index:1;
+  }
+  section:hover { transform: scale(1.01); box-shadow: 0 0 25px rgba(0,0,0,0.25); }
+  h2 { color: #2e7d32; text-align:center; }
+  ul { padding-left: 20px; }
+  p, li { text-align: justify; }
+
+  /* Sidebar vertical */
+  .sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: var(--sidebar-width);
+    background: linear-gradient(180deg,#1b5e20 0%, #2e7d32 100%);
+    padding: 20px 10px;
+    box-shadow: 2px 0 8px rgba(0,0,0,0.12);
+    color: #fff;
+    overflow:auto;
+    z-index:1001;
+  }
+  .sidebar h3{ margin: 0 0 12px 12px; font-size:18px; }
+  .sidebar nav{ display:flex; flex-direction:column; gap:6px; }
+  .sidebar a{
+    color: #e8f5e9; text-decoration:none; padding:10px 12px; margin:4px; border-radius:8px; display:block;
+    font-weight:600;
+  }
+  .sidebar a:hover, .sidebar a:focus{ background: rgba(255,255,255,0.08); outline:none; }
+  .sidebar a.active{ background: rgba(255,255,255,0.12); box-shadow: inset 0 0 10px rgba(0,0,0,0.12); }
+
+  main{ margin-left: calc(var(--sidebar-width) + 20px); padding: 20px 30px; position:relative; z-index:1; }
+
+  .sidebar-toggle{ display:none; position:fixed; left:10px; top:10px; z-index:1100; background:#2e7d32; color:#fff; border:none; padding:8px 10px; border-radius:6px; }
+  @media (max-width:900px){
+    :root{ --sidebar-width:200px; }
+    main{ margin-left: calc(var(--sidebar-width) + 16px); }
+  }
+  @media (max-width:720px){
+    .sidebar{ transform: translateX(-110%); transition: transform .25s ease; }
+    .sidebar.open{ transform: translateX(0); }
+    .sidebar-toggle{ display:block; }
+    main{ margin-left: 16px; padding-top:60px; }
+  }
+
+  .header-logo{ position:absolute; top:12px; right:12px; width:96px; height:96px; background:#fff; border-radius:8px; overflow:hidden; z-index:2; }
+  .header-logo img{ width:100%; height:100%; object-fit:cover; }
+
+  .topnav { border-radius:8px; }
+  .topnav a { text-decoration:none; }
+
+  a:focus { outline: 3px solid rgba(46,125,50,0.4); outline-offset: 2px; }
+
+ @media (max-width:600px) {
+    header h1 { font-size: 28px; }
+    header div { font-size: 16px; }
+    section { margin: 12px; padding: 16px; }
+  }
+
+  footer {
+    background: #1b5e20; 
+    color: #fff;
+    padding: 22px 6%;
+    text-align: center;
+    margin-top: 40px;
+    border-radius: 6px;
+    margin-left: calc(var(--sidebar-width) + 20px);
+    width: calc(100% - (var(--sidebar-width) + 40px));
+    box-sizing: border-box;
+  }
+
+  @media (max-width:720px){
+    footer{ margin-left:16px; width:auto; }
+  }
+
+</style>
+</head>
+<body>
+  <button class="sidebar-toggle" aria-controls="sidebar" aria-expanded="false" onclick="toggleSidebar()">Menu</button>
+
+  <aside id="sidebar" class="sidebar" aria-label="Navegación de secciones">
+    <h3>Índice</h3>
+    <nav>
+      <a href="#mision">Misión</a>
+      <a href="#vision">Visión</a>
+      <a href="#reciclaje">¿Qué es el reciclaje?</a>
+      <a href="#por-que">¿Por qué es bueno reciclar?</a>
+      <a href="#consecuencias">Consecuencias de no reciclar</a>
+      <a href="#recomendaciones">Recomendaciones</a>
+    </nav>
+  </aside>
+
+  <main>
+    <header style="background:#2e7d32; color:white; padding:20px; text-align:center; position:relative;">
+      <div style="font-size:20px; font-weight:bold;"></div>
+      <h1 style="margin:5px 0; font-size:40px;">🌱 Eco Creators - Sobre Nosotros 🌎</h1>
+      <div class="header-logo" aria-hidden="true">
+        <img src="Imagenes/Eco-Creators.jpeg" alt="Logo" />
+      </div>
+    </header>
+
+    <nav class="topnav" aria-label="Navegación principal" style="background:#1b5e20; padding:10px; text-align:center; margin-top:12px;">
+      <a href="index.html" style="color:white; margin:0 15px; text-decoration:none; font-weight:600;">Inicio</a>
+      <a href="#mision" style="color:white; margin:0 15px; text-decoration:none; font-weight:600;">Acerca de nosotros</a>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLScPWf6H3vWk2Ue6tfA5OexiyM7UqLAO2XLf4CiJrzumtm4xNg/viewform" style="color:white; margin:0 15px; text-decoration:none; font-weight:600;">Registro de libros</a>
+      <a href="Proyectos.html" style="color:white; margin:0 15px; text-decoration:none; font-weight:600;">Proyectos y actividades</a>
+      <a href="Contacto.html" style="color:white; margin:0 15px; text-decoration:none; font-weight:600;">Contacto y más información</a>
+    </nav>
+
+    <section id="mision" tabindex="-1" aria-labelledby="mision-title">
+      <h2 id="mision-title">Misión</h2>
+      <img src="Imagenes/mision.png" alt="Imagen que representa la misión" style="width:100%; max-width:350px; display:block; height:250px; margin:auto;" />
+      <p>Promover la conciencia ecológica y el aprovechamiento responsable de los recursos
+      mediante una plataforma digital que oriente a la comunidad escolar en la reutilización
+      creativa de materiales. Asimismo, brindar un acceso equitativo al conocimiento a través
+      de un catálogo digital de libros, fortaleciendo la educación, la sustentabilidad y el
+      compromiso social dentro del entorno académico.</p>
+    </section>
+
+    <section id="vision" tabindex="-1" aria-labelledby="vision-title">
+      <h2 id="vision-title">Visión</h2>
+      <img src="Imagenes/vision.png" alt="Imagen que representa la visión" style="width:100%; max-width:350px; height:250px; display:block; margin:auto;" />
+      <p>Convertirse en un proyecto institucional de referencia que impulse la cultura del reciclaje y
+      la economía circular, integrando la tecnología como herramienta para el desarrollo
+      sustentable y la inclusión educativa. Se busca consolidar una comunidad escolar
+      consciente, colaborativa y comprometida con el cuidado del medio ambiente y la difusión
+      del conocimiento para un futuro más sostenible</p>
+    </section>
+
+    <section id="reciclaje" tabindex="-1" aria-labelledby="reciclaje-title">
+      <h2 id="reciclaje-title">¿Qué es el reciclaje?</h2>
+      <img src="Imagenes/reciclaje.jpg" alt="Proceso de reciclaje" style="width:100%; max-width:350px; height:250px; display:block; margin:auto;" />
+      <p>El reciclaje es un proceso ambiental y productivo mediante el cual los materiales que ya
+      fueron utilizados (como papel, vidrio, plástico, metales o cartón) se recolectan, clasifican,
+      procesan y transforman para ser utilizados nuevamente en la fabricación de nuevos
+      productos o materias primas.
+      Este proceso forma parte de un modelo de gestión de residuos sostenible que busca
+      disminuir la cantidad de basura enviada a vertederos o incineradoras, ahorrar energía y
+      reducir el consumo de recursos naturales.</p>
+    </section>
+
+    <section id="por-que" tabindex="-1" aria-labelledby="por-que-title">
+      <h2 id="por-que-title">¿Por qué es bueno reciclar?</h2>
+      <img src="Imagenes/importancia reciclaje.jpg" alt="Importancia del reciclaje" style="width:100%; max-width:350px; height:250px; display:block; margin:auto;" />
+      <p>Reciclar es una de las prácticas más efectivas para cuidar el medio ambiente y los
+      recursos naturales del planeta. Gracias al reciclaje se logra disminuir la cantidad de
+      residuos que terminan en vertederos, mares o ríos, evitando así la contaminación del
+      suelo y del agua. Además, reduce las emisiones de gases de efecto invernadero, que son
+      responsables del cambio climático, ya que se utiliza menos energía al fabricar nuevos
+      productos con materiales reciclados.
+      El reciclaje también fomenta la economía circular, un modelo que busca reutilizar los
+      recursos en lugar de desecharlos, promoviendo la innovación y la creación de empleos en
+      sectores sostenibles. Por otro lado, ahorra materias primas y energía, ya que fabricar
+      papel, vidrio o plástico a partir de materiales reciclados requiere menos recursos que
+      hacerlo desde cero.
+      Finalmente, reciclar educa y genera conciencia ambiental, ayudando a construir una
+      sociedad más responsable con su entorno y comprometida con el futuro del planeta.
+      - Fuente: BBVA - Qué es el reciclaje y por qué es importante reciclar</p>
+    </section>
+
+    <section id="consecuencias" tabindex="-1" aria-labelledby="consecuencias-title">
+      <h2 id="consecuencias-title">Consecuencias de no reciclar</h2>
+      <img src="Imagenes/consecuencias.jpg" alt="Consecuencias del no reciclaje" style="width:100%; max-width:350px; height:250px; display:block; margin:auto;" />
+      <p>No reciclar tiene consecuencias negativas tanto para el medio ambiente como para la
+      salud humana. Cuando los residuos no se separan ni se reutilizan, terminan
+      acumulándose en vertederos o contaminando los ecosistemas, liberando gases y
+      sustancias tóxicas que afectan la calidad del aire y del agua. Los plásticos, por ejemplo,
+      pueden tardar cientos de años en degradarse, y en ese proceso dañan gravemente a la
+      fauna marina y terrestre, que los confunde con alimento.
+
+      Además, al no reciclar, se incrementa la explotación de recursos naturales como el
+      petróleo, los minerales y los bosques, lo que genera deforestación, pérdida de
+      biodiversidad y un mayor impacto ambiental. También aumentan las emisiones de gases
+      de efecto invernadero, contribuyendo al calentamiento global.
+
+      A nivel social, no reciclar significa perder oportunidades de empleo en la industria del
+      reciclaje y en proyectos ecológicos. A largo plazo, la acumulación de basura puede
+      provocar problemas de salud pública, malos olores, proliferación de plagas y deterioro de
+      la calidad de vida en las ciudades.
+      - Fuente: ACNUR - ¿Cuáles son las consecuencias de no reciclar?</p>
+    </section>
+
+    <section id="recomendaciones" tabindex="-1" aria-labelledby="recomendaciones-title">
+      <h2 id="recomendaciones-title">Recomendaciones</h2>
+      <img src="Imagenes/consejos.jpg" alt="Consejos de reciclaje" style="width:100%; max-width:350px; height:400px; display:block; margin:auto;" />
+      <ul>
+        <li>Separar los residuos en orgánicos e inorgánicos.</li>
+        <li>Usar contenedores de colores según el tipo de material.</li>
+        <li>Evitar plásticos de un solo uso.</li>
+        <li>Reutilizar envases y frascos.</li>
+        <li>Reducir el consumo innecesario.</li>
+        <li>Donar objetos en buen estado.</li>
+        <li>Lavar materiales reciclables.</li>
+        <li>No mezclar residuos peligrosos.</li>
+        <li>Usar productos biodegradables o reciclados.</li>
+        <li>Imprimir solo lo necesario.</li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer>
+    © 2025 Eco Creators — Plataforma para la conciencia ecológica y el aprovechamiento responsable de los recursos 🌿
+  </footer>
+
+<script>
+  function toggleSidebar(){
+    const sb = document.getElementById('sidebar');
+    const btn = document.querySelector('.sidebar-toggle');
+    sb.classList.toggle('open');
+    const expanded = sb.classList.contains('open');
+    btn.setAttribute('aria-expanded', expanded);
+  }
+
+  const links = document.querySelectorAll('.sidebar a');
+  const sections = Array.from(links).map(l => document.querySelector(l.getAttribute('href')));
+
+  function onScroll(){
+    const scrollPos = window.scrollY + 120; // offset to consider header
+    sections.forEach((sec, i) => {
+      if(!sec) return;
+      const top = sec.offsetTop;
+      const bottom = top + sec.offsetHeight;
+      if(scrollPos >= top && scrollPos < bottom){
+        links.forEach(a => a.classList.remove('active'));
+        links[i].classList.add('active');
+      }
+    });
+  }
+  window.addEventListener('scroll', onScroll);
+  window.addEventListener('load', onScroll);
+
+  links.forEach(a => a.addEventListener('click', ()=>{
+    const target = document.querySelector(a.getAttribute('href'));
+    if(target) target.focus({preventScroll:true});
+    if(window.innerWidth <= 720) document.getElementById('sidebar').classList.remove('open');
+  }));
+</script>
+</body>
+</html>
