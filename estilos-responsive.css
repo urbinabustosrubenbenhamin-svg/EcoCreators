@@ -1,0 +1,318 @@
+/* ========================================
+   ESTILOS RESPONSIVOS GLOBALES - TODOS LOS HTML
+   ======================================== */
+
+/* ===== MEDIA QUERY: TABLETS (768px y menos) ===== */
+@media (max-width: 768px) {
+  
+  /* Header y Navegación */
+  header {
+    flex-direction: column;
+    padding: 15px 20px !important;
+    text-align: center;
+    font-size: 22px;
+  }
+
+  header h1 {
+    font-size: 22px;
+    margin-bottom: 15px;
+  }
+
+  nav {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 15px !important;
+  }
+
+  nav a {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+
+  /* Secciones y Contenedores */
+  section {
+    padding: 30px 20px !important;
+  }
+
+  .contact-container {
+    padding: 30px 5%;
+    margin: 20px auto;
+  }
+
+  /* Grillas y Cards */
+  .grid,
+  .card-grid {
+    flex-direction: column;
+    gap: 20px !important;
+  }
+
+  .card,
+  .contact-card {
+    min-width: 100%;
+    min-height: 350px !important;
+  }
+
+  .double-section {
+    flex-direction: column;
+    gap: 20px;
+    padding: 30px 20px;
+  }
+
+  .double-card {
+    padding: 20px;
+  }
+
+  .double-card img {
+    height: 120px;
+  }
+
+  /* Tipografía */
+  h2 {
+    font-size: 24px;
+  }
+
+  h3 {
+    font-size: 20px;
+  }
+
+  .form-section h2,
+  .info-section h2 {
+    font-size: 26px;
+  }
+
+  .contact-card h3 {
+    font-size: 20px;
+  }
+
+  .contact-form label {
+    font-size: 16px;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    font-size: 16px;
+    padding: 12px;
+  }
+
+  .contact-form button {
+    font-size: 16px;
+    padding: 12px 24px;
+    width: 100%;
+  }
+
+  .info-section p,
+  .info-section li {
+    font-size: 16px;
+  }
+
+  .info-section ul li a {
+    font-size: 16px;
+  }
+
+  .card p {
+    font-size: 15px;
+  }
+
+  .double-card h2 {
+    font-size: 22px;
+  }
+
+  .double-card p,
+  .double-card ul {
+    font-size: 15px;
+  }
+
+  /* Redes Sociales y Botones */
+  .social-links a {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+
+  /* Footer */
+  footer {
+    font-size: 14px;
+    padding: 15px 10px;
+  }
+
+  /* Sidebar (Sobre nosotros) */
+  .sidebar {
+    width: 250px;
+  }
+
+  .main-content {
+    margin-left: 280px;
+  }
+
+  /* Videos */
+  .video-wrap {
+    padding-top: 56.25%;
+  }
+}
+
+/* ===== MEDIA QUERY: MÓVILES (480px y menos) ===== */
+@media (max-width: 480px) {
+  
+  /* Header y Navegación */
+  header {
+    padding: 12px 15px !important;
+    font-size: 18px;
+  }
+
+  header h1 {
+    font-size: 18px;
+    margin-bottom: 12px;
+  }
+
+  nav {
+    gap: 8px;
+    padding: 10px !important;
+  }
+
+  nav a {
+    font-size: 11px;
+    padding: 6px 8px;
+  }
+
+  /* Secciones */
+  section {
+    padding: 20px 10px !important;
+  }
+
+  .contact-container {
+    padding: 20px 5%;
+    margin: 15px auto;
+  }
+
+  .double-section {
+    padding: 20px 10px;
+  }
+
+  /* Tipografía General */
+  h2 {
+    font-size: 20px !important;
+    margin-top: 25px !important;
+  }
+
+  h3 {
+    font-size: 18px;
+  }
+
+  /* Cards */
+  .grid,
+  .card-grid {
+    gap: 15px !important;
+  }
+
+  .card,
+  .contact-card {
+    min-width: 100%;
+    min-height: 300px !important;
+  }
+
+  .card h3 {
+    font-size: 18px;
+  }
+
+  .card p {
+    font-size: 14px;
+  }
+
+  .double-card {
+    padding: 15px;
+  }
+
+  .double-card h2 {
+    font-size: 18px;
+  }
+
+  .double-card img {
+    height: 100px;
+  }
+
+  .double-card p,
+  .double-card ul {
+    font-size: 14px;
+  }
+
+  /* Formulario */
+  .contact-form button {
+    font-size: 14px;
+    padding: 10px 20px;
+    width: 100%;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    font-size: 16px;
+  }
+
+  .contact-form label {
+    font-size: 14px;
+  }
+
+  /* Info y Social */
+  .info-section p,
+  .info-section li {
+    font-size: 14px;
+  }
+
+  .info-section ul li a {
+    font-size: 14px;
+  }
+
+  .social-links a {
+    display: block;
+    margin: 8px 0;
+  }
+
+  .social-icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  /* Footer */
+  footer {
+    font-size: 12px;
+    padding: 12px 8px;
+  }
+
+  /* Sidebar (Sobre nosotros) */
+  .sidebar {
+    width: 100%;
+    position: relative;
+  }
+
+  .main-content {
+    margin-left: 0;
+  }
+
+  .sidebar-toggle {
+    display: block !important;
+  }
+}
+
+/* ===== MEDIA QUERY: MÓVILES GRANDES (576px a 768px) ===== */
+@media (min-width: 481px) and (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+/* ===== MEDIA QUERY: TABLETS PEQUEÑAS (481px a 600px) ===== */
+@media (max-width: 600px) {
+  .main-content {
+    margin-left: 0;
+  }
+
+  .sidebar {
+    position: fixed;
+    left: -100%;
+    transition: left 0.3s ease;
+    z-index: 1000;
+  }
+
+  .sidebar.active {
+    left: 0;
+  }
+}

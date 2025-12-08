@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="Imagenes/Eco-Creators.jpeg">
+  <title>Contacto y más información - Eco Creators</title>
+  <link rel="stylesheet" href="estilos-responsive.css">
+    <link rel="stylesheet" href="assets/site.css">
+
+  <style>
+
+    body {
+      font-family: "Poppins", sans-serif;
+      background-color: #f5f9f6;
+      margin: 0;
+      padding: 0;
+      color: #2e4a3c;
+      background: url('Imagenes/fondo.png') no-repeat center top fixed;
+      background-size: cover;
+      background-attachment: fixed;
+    }
+
+    header {
+      background-color: #2e7d32;
+      color: #fff;
+      padding: 15px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-left: 40px;
+      padding-right: 40px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+      border-bottom: 4px solid #1b5e20;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 28px;
+      color: #fff;
+    }
+
+    /* --- Estilo del menú --- */
+    nav {
+      background-color: transparent;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 0;
+      gap: 30px;
+      border-bottom: none;
+      box-shadow: none;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 17px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      padding: 8px 15px;
+      border-radius: 8px;
+    }
+
+    nav a:hover {
+      background-color: rgba(255,255,255,0.1);
+      transform: scale(1.05);
+    }
+
+    nav a.active {
+      background-color: rgba(255,255,255,0.2);
+      color: #fff;
+    }
+
+    .contact-container {
+      padding: 50px 8%;
+      background: rgba(255, 255, 255, 0.92);
+      border-radius: 18px;
+      margin: 40px auto;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    }
+
+    .card-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 25px;
+      margin-top: 20px;
+    }
+
+    .contact-card {
+      flex: 1;
+      min-width: 280px;
+      padding: 25px;
+      border-radius: 18px;
+      background: white;
+      border: none;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+      transition: transform .25s ease, box-shadow .25s ease;
+
+    }
+
+    .contact-card p {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .contact-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+    }
+
+    .contact-card h3 {
+      margin: 0 0 10px;
+      color: #2e9627;
+      font-size: 26px;
+      font-weight: bold;
+    }
+
+    .social-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-right: 15px;
+      padding: 10px 16px;
+      border-radius: 8px;
+      text-decoration: none;
+      background: #2e9627;
+      color: white;
+      font-size: 19px;
+      font-weight: bold;
+      transition: 0.3s;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .social-links a:hover {
+      background: #2e9627;
+      transform: translateY(-3px);
+    }
+
+    .social-icon {
+      width: 23px;
+      height: 23px;
+    }
+
+    .form-section h2 {
+      color: #2e9627;
+      font-size: 32px;
+      margin-top: 40px;
+      font-weight: bold;
+    }
+
+    .contact-form label {
+      font-weight: bold;
+      color: #0b3a53;
+      font-size: 20px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 14px;
+      margin-top: 10px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      border: 2px solid #0b3a53;
+      font-size: 18px;
+      background: #fdfdfd;
+      box-shadow: inset 0 2px 7px rgba(0,0,0,0.1);
+    }
+
+    .contact-form button {
+      background: #2e9627;
+      color: white;
+      padding: 14px 30px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 20px;
+      transition: 0.3s;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    }
+
+    .contact-form button:hover {
+      background: #1d751f;
+      transform: translateY(-3px);
+    }
+
+    .info-section h2 {
+      color: #2e9627;
+      font-size: 32px;
+      margin-top: 40px;
+      font-weight: bold;
+    }
+
+    .info-section p,
+    .info-section li { /* mantengo li separado para estilo personalizado */
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    /* Estética para los enlaces dentro de la sección de información */
+    .info-section ul {
+      list-style: none;
+      padding-left: 0;
+      margin-left: 0;
+    }
+
+    .info-section ul li {
+      position: relative;
+      padding-left: 18px;
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+
+    .info-section ul li::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      background: #2e7d32; /* punto verde */
+      border-radius: 50%;
+      position: absolute;
+      left: 0;
+      top: 8px;
+      box-shadow: 0 1px 0 rgba(0,0,0,0.04);
+    }
+
+    .info-section ul li a {
+      color: #2e7d32; /* color principal verde */
+      text-decoration: none; /* quita subrayado morado */
+      font-weight: 600;
+      font-size: 18px;
+      transition: color .18s ease, transform .12s ease;
+    }
+
+    .info-section ul li a:hover,
+    .info-section ul li a:focus {
+      color: #1b5e20; /* tono más oscuro al pasar */
+      transform: translateX(6px);
+      text-decoration: underline; /* opcional pero suave */
+    }
+
+    .info-section ul li a:visited{ color: #256030 }
+
+    footer {
+      margin-top: 50px;
+      padding: 20px;
+      text-align: center;
+      background: linear-gradient(90deg,#2e7d32,#1b5e20);
+      color: white;
+      font-size: 18px;
+      font-weight: bold;
+      box-shadow: 0 -4px 12px rgba(11,58,83,0.08);
+    }
+
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>🌱 Eco Creators - Contacto 🌎</h1>
+  <button class="menu-toggle" aria-expanded="false" aria-label="Abrir menú">☰</button>
+  <nav>
+    <a href="" class="active"></a>
+    <a href="index.html" class="">Inicio</a>
+    <a href="Sobre nosotros.html">Acerca de nosotros</a>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLScPWf6H3vWk2Ue6tfA5OexiyM7UqLAO2XLf4CiJrzumtm4xNg/viewform">Registro de libros</a>
+    <a href="Proyectos.html">Proyectos </a>
+    <a href="Contacto.html" >Contacto y mas informacion</a>
+  </nav>
+</header>
+
+<section class="contact-container">
+
+  <h2 style="color:#2e9627; font-size:32px; margin-bottom:15px;">Información de contacto</h2>
+
+  <div class="card-grid">
+
+    <div class="contact-card">
+      <h3>Correo electrónico</h3>
+      <p>pruebadecorreo@gmail.com</p>
+    </div>
+
+    <div class="contact-card">
+      <h3>Teléfono</h3>
+      <p>55444332211</p>
+    </div>
+
+    <div class="contact-card">
+      <h3>Dirección</h3>
+      <p>Av. de las Granjas 618, Santo Tomas, Azcapotzalco, 02020 Ciudad de México, CDMX</p>
+    </div>
+
+  </div>
+
+  <h2 style="color:#2e9627; font-size:32px; margin-top:40px;">Síguenos en redes sociales</h2>
+
+  <div class="social-links">
+      <a href="https://www.instagram.com/ecocreators_5im15?igsh=cTF6aDJzY2Znam1h" target="_blank" rel="noopener noreferrer">
+        <img class="social-icon" src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
+        Instagram
+      </a>
+  </div>
+
+  <div class="form-section">
+    <h2>Envíanos un mensaje</h2>
+
+    <form class="contact-form" action="https://formspree.io/f/TU_CODIGO_AQUI" method="POST">
+      <label>Nombre completo</label>
+      <input type="text" name="nombre" placeholder="Tu nombre..." required>
+
+      <label>Correo electrónico</label>
+      <input type="email" name="correo" placeholder="Tu correo..." required>
+
+      <label>Mensaje</label>
+      <textarea name="mensaje" rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
+
+      <button type="submit">Enviar</button>
+    </form>
+  </div>
+
+  <div class="info-section">
+
+    <h2>Misión del proyecto</h2>
+    <p>
+      Promover la conciencia ecológica mediante actividades, proyectos y recursos educativos
+      que impulsen un uso responsable de los recursos naturales.
+    </p>
+
+    <h2>Objetivos ecológicos</h2>
+    <ul>
+      <li>Fomentar el reciclaje y la reutilización creativa.</li>
+      <li>Reducir la contaminación mediante acciones comunitarias.</li>
+      <li>Promover hábitos ecológicos en jóvenes y familias.</li>
+      <li>Apoyar proyectos sustentables locales.</li>
+    </ul>
+
+    <h2>¿Cómo participar?</h2>
+    <p>
+      Únete a nuestras actividades, campañas, talleres y proyectos ambientales.  
+      Usa el formulario para ponerte en contacto con nosotros.
+    </p>
+
+    <h2>Enlaces útiles</h2>
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="Proyectos.html">Proyectos y actividades</a></li>
+  <li><a href="Sobre nosotros.html">Sobre nosotros</a></li>
+    </ul>
+
+  </div>
+
+</section>
+
+<footer>
+    © 2025 Eco Creators — Plataforma para la conciencia ecológica y el aprovechamiento responsable de los recursos 🌿
+  </footer>
+
+  <script src="assets/site.js"></script>
+
+</body>
+</html>
