@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="Imagenes/Eco-Creators.jpeg">
+  <title>Proyectos y Actividades</title>
+  <link rel="stylesheet" href="estilos-responsive.css">
+  <link rel="stylesheet" href="assets/site.css">
+  <style>
+        body {
+      font-family: "Poppins", sans-serif;
+      background-color: #f5f9f6;
+      margin: 0;
+      padding: 0;
+      color: #2e4a3c;
+      background: url('Imagenes/fondo.png') no-repeat center top fixed;
+      background-size: cover;
+      background-attachment: fixed;
+    }
+
+    header {
+      background-color: #3b755f;
+      color: #fff;
+      padding: 20px 0;
+      text-align: center;
+      font-size: 2em;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    /* --- Estilo del menú --- */
+    nav {
+      background-color: #2e7d32; /* verde oscuro ecológico */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 15px 0;
+      gap: 30px;
+      border-bottom: 4px solid #1b5e20;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 17px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      padding: 8px 15px;
+      border-radius: 8px;
+    }
+
+    nav a:hover {
+      background-color: #388e3c;
+      transform: scale(1.05);
+    }
+
+    nav a.active {
+      background-color: #43a047;
+      color: #fff;
+    }
+
+    /* Menu toggle button */
+    .menu-toggle{display:none;background:rgba(255,255,255,0.15);border:2px solid rgba(255,255,255,0.3);color:#fff;padding:10px 12px;font-size:22px;cursor:pointer;border-radius:8px;position:fixed;left:12px;top:12px;z-index:1000;box-shadow:0 4px 12px rgba(0,0,0,0.2)}
+    .menu-toggle:hover{background:rgba(255,255,255,0.25)}
+    
+    /* Mobile menu styling */
+    nav.open{display:flex !important;flex-direction:column;position:fixed;left:12px;top:60px;width:auto;min-width:200px;background:linear-gradient(135deg,#2e7d32,#1b5e20);padding:12px 14px;gap:6px;z-index:999;border-radius:8px;box-shadow:0 12px 36px rgba(11,58,83,0.25)}
+    nav.open a{padding:8px 10px;font-size:13px;white-space:nowrap;border-radius:6px}
+    nav.open a:hover{background:rgba(255,255,255,0.15);transform:none}
+    
+    @media(max-width:720px){
+      .menu-toggle{display:block}
+      nav{display:none !important}
+    }
+
+    section {
+      padding: 40px 60px;
+    }
+
+    h2 {
+      color: #3b755f;
+      border-bottom: 2px solid #8fc1a9;
+      padding-bottom: 5px;
+      text-transform: uppercase;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 45px; /* separación uniforme de 20px entre filas y columnas */
+      margin-top: 25px;
+      align-items: stretch; /* asegura que los items de la grilla se estiren a la misma altura */
+    }
+
+    .card {
+      background-color: #ffffff;
+      border-radius: 15px;
+      box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.2s ease;
+      display: flex; /* hacer la tarjeta un contenedor flex para distribuir contenido */
+      flex-direction: column;
+      justify-content: space-between; /* empujar el contenido para igualar alturas */
+      height: 100%;
+      min-height: 420px; /* altura mínima uniforme para todas las tarjetas */
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 12px;
+      height: 160px;
+      object-fit: cover;
+      margin-bottom: 15px;
+      flex: 0 0 auto; /* evitar que la imagen estire el layout */
+    }
+
+    ul {
+      text-align: left;
+      padding-left: 20px;
+    }
+
+    iframe {
+      border-radius: 10px;
+      width: 100%;
+      height: 200px;
+      margin-top: 10px;
+      flex: 0 0 auto; /* evitar que el iframe estire verticalmente */
+    }
+
+    /* Video thumbnail fallback / lazy player */
+    .video-wrap{position:relative;width:100%;padding-top:56.25%;overflow:hidden;border-radius:10px;background:#000}
+    .video-wrap img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+    .video-play-btn{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:64px;height:64px;border-radius:50%;background:rgba(0,0,0,0.5);display:flex;align-items:center;justify-content:center;border:2px solid rgba(255,255,255,0.12);cursor:pointer}
+    .video-play-btn::after{content:'';display:block;margin-left:6px;border-style:solid;border-width:12px 0 12px 20px;border-color:transparent transparent transparent #fff}
+    .video-open-link{position:absolute;right:8px;bottom:8px;background:rgba(255,255,255,0.9);color:#111;padding:6px 8px;border-radius:6px;font-weight:700;text-decoration:none;font-size:13px}
+
+    /* Sección doble: Centros + Recomendaciones */
+    .double-section {
+      display: flex;
+      gap: 30px;
+      margin-top: 40px;
+      flex-wrap: wrap;
+    }
+
+    .double-card {
+      flex: 1;
+      background-color: #ffffff;
+      border-radius: 15px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+      padding: 25px;
+    }
+
+    .double-card img {
+      width: 100%;
+      border-radius: 12px;
+      height: 140px;
+      object-fit: cover;
+      margin-bottom: 10px;
+    }
+
+    footer {
+      text-align: center;
+      background-color: #3b755f;
+      color: #fff;
+      padding: 20px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <button class="menu-toggle" aria-expanded="false" aria-label="Abrir menú">☰</button>
+
+  <header>🌱 Eco Creators - Proyectos y Actividades 🌎</header>
+  
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="Sobre nosotros.html">Acerca de nosotros</a>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLScPWf6H3vWk2Ue6tfA5OexiyM7UqLAO2XLf4CiJrzumtm4xNg/viewform">Registro de libros</a>
+    <a href="Proyectos.html" class="active">Proyectos</a>
+    <a href="Contacto.html">Contacto</a>
+  </nav>
+
+  <section id="materiales">
+    <h2>Menú de materiales reciclables e ideas para reciclar</h2>
+    <div class="grid">
+      <div class="card">
+        <img src="Imagenes/latas.png" alt="Latas recicladas">
+        <h3>Latas</h3>
+        <p>Transforma latas en macetas, portalápices o lámparas decorativas.</p>
+  <a class="video-thumb" href="https://www.youtube.com/watch?v=_TJk6S3IMUc" target="_blank" rel="noopener noreferrer">
+    <div class="video-wrap">
+      <img src="https://img.youtube.com/vi/_TJk6S3IMUc/hqdefault.jpg" alt="Miniatura del video">
+      <div class="video-play-btn" aria-hidden="true"></div>
+    </div>
+  </a>
+      </div>
+
+      <div class="card">
+        <img src="Imagenes/botellas.png" alt="Botellas de plástico recicladas">
+        <h3>Botellas de plástico</h3>
+        <p>Conviértelas en maceteros, casas para pájaros o sistemas de riego.</p>
+  <a class="video-thumb" href="https://www.youtube.com/watch?v=FwEGLu3ssiU" target="_blank" rel="noopener noreferrer">
+    <div class="video-wrap">
+      <img src="https://img.youtube.com/vi/FwEGLu3ssiU/hqdefault.jpg" alt="Miniatura del video">
+      <div class="video-play-btn" aria-hidden="true"></div>
+    </div>
+  </a>
+      </div>
+
+      <div class="card">
+        <img src="Imagenes/carton.png" alt="Cartón reciclado">
+        <h3>Envases de cartón</h3>
+        <p>Haz organizadores, juguetes o decoraciones ecológicas.</p>
+  <a class="video-thumb" href="https://www.youtube.com/watch?v=DgbNyDmj7p8" target="_blank" rel="noopener noreferrer">
+    <div class="video-wrap">
+      <img src="https://img.youtube.com/vi/DgbNyDmj7p8/hqdefault.jpg" alt="Miniatura del video">
+      <div class="video-play-btn" aria-hidden="true"></div>
+    </div>
+  </a>
+      </div>
+
+      <div class="card">
+        <img src="Imagenes/vidrio.png" alt="Vidrio reciclado">
+        <h3>Envases de vidrio</h3>
+        <p>Decora frascos o crea lámparas artesanales.</p>
+  <a class="video-thumb" href="https://www.youtube.com/watch?v=oTaMDVZqBmU" target="_blank" rel="noopener noreferrer">
+    <div class="video-wrap">
+      <img src="https://img.youtube.com/vi/oTaMDVZqBmU/hqdefault.jpg" alt="Miniatura del video">
+      <div class="video-play-btn" aria-hidden="true"></div>
+    </div>
+  </a>
+      </div>
+
+      <div class="card">
+        <img src="Imagenes/papel.png" alt="Papel reciclado">
+        <h3>Periódico y papel</h3>
+        <p>Usa papel reciclado para envolver regalos o hacer figuras de origami.</p>
+  <a class="video-thumb" href="https://www.youtube.com/watch?v=It9yylnSev0" target="_blank" rel="noopener noreferrer">
+    <div class="video-wrap">
+      <img src="https://img.youtube.com/vi/It9yylnSev0/hqdefault.jpg" alt="Miniatura del video">
+      <div class="video-play-btn" aria-hidden="true"></div>
+    </div>
+  </a>
+      </div>
+
+      <div class="card">
+        <img src="Imagenes/muebles.png" alt="Muebles reciclados">
+        <h3>Muebles viejos</h3>
+        <p>Renuévalos con pintura ecológica o conviértelos en nuevos objetos útiles.</p>
+  <a class="video-thumb" href="https://www.youtube.com/watch?v=mR-4lM1y-mA" target="_blank" rel="noopener noreferrer">
+    <div class="video-wrap">
+      <img src="https://img.youtube.com/vi/mR-4lM1y-mA/hqdefault.jpg" alt="Miniatura del video">
+      <div class="video-play-btn" aria-hidden="true"></div>
+    </div>
+  </a>
+      </div>
+
+      <div class="card">
+        <img src="Imagenes/llantas.png" alt="Llantas recicladas">
+        <h3>Llantas</h3>
+        <p>Usa llantas para hacer columpios o jardineras decorativas.</p>
+  <a class="video-thumb" href="https://www.youtube.com/watch?v=uAw0DuuiVek" target="_blank" rel="noopener noreferrer">
+    <div class="video-wrap">
+      <img src="https://img.youtube.com/vi/uAw0DuuiVek/hqdefault.jpg" alt="Miniatura del video">
+      <div class="video-play-btn" aria-hidden="true"></div>
+    </div>
+  </a>
+      </div>
+
+      <div class="card">
+        <img src="Imagenes/ropa.png" alt="Ropa reciclada">
+        <h3>Ropa / Tela</h3>
+        <p>Convierte prendas viejas en bolsas, tapetes o accesorios.</p>
+  <a class="video-thumb" href="https://www.youtube.com/watch?v=-Lp_CiDaCOU" target="_blank" rel="noopener noreferrer">
+    <div class="video-wrap">
+      <img src="https://img.youtube.com/vi/-Lp_CiDaCOU/hqdefault.jpg" alt="Miniatura del video">
+      <div class="video-play-btn" aria-hidden="true"></div>
+    </div>
+  </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Nueva sección doble -->
+  <section class="double-section">
+    <div class="double-card">
+      <h2>Centros de reciclaje y materiales peligrosos</h2>
+      <img src="Imagenes/centrodereciclaje.png" alt="Centro de reciclaje">
+      <p>Los <b>centros de reciclaje</b> son lugares donde los residuos se clasifican y preparan para su reutilización. En México, algunos están certificados por <b>Recicla México</b> y <b>SEDEMA</b>.</p>
+      <ul>
+        <li>Pilas y baterías</li>
+        <li>Electrónicos</li>
+        <li>Aceites usados</li>
+        <li>Pinturas y aerosoles</li>
+        <li>Medicamentos caducos</li>
+      </ul>
+      <p><b>Consulta más información en:</b></p>
+      <ul>
+        <li><a href="https://www.reciclaenmexico.org/" target="_blank">Recicla México</a></li>
+        <li><a href="https://www.sedema.cdmx.gob.mx/" target="_blank">SEDEMA</a></li>
+      </ul>
+    </div>
+
+    <div class="double-card">
+      <h2>Recomendaciones prácticas ecológicas</h2>
+      <img src="Imagenes/accionesecologicas.png" alt="Acciones ecológicas">
+      <ul>
+        <li>Separar los residuos correctamente.</li>
+        <li>Usar los contenedores de colores.</li>
+        <li>Evitar plásticos de un solo uso.</li>
+        <li>Reutilizar envases y bolsas.</li>
+        <li>Donar ropa y objetos útiles.</li>
+        <li>Ahorrar energía y agua.</li>
+        <li>Plantar árboles y cuidar áreas verdes.</li>
+        <li>Participar en campañas ecológicas.</li>
+        <li>Usar productos biodegradables.</li>
+        <li>Motivar a otros a cuidar el planeta.</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 Eco Creators — Plataforma para la conciencia ecológica y el aprovechamiento responsable de los recursos 🌿
+  </footer>
+
+  <script>
+  // Carga el iframe inline cuando el usuario hace clic en la miniatura (lazy-load)
+  document.addEventListener('DOMContentLoaded', function(){
+    function getYouTubeID(url){
+      try{
+        const u = new URL(url);
+        if(u.searchParams.get('v')) return u.searchParams.get('v');
+        if(u.hostname.includes('youtu.be')) return u.pathname.split('/')[1];
+        const parts = u.pathname.split('/');
+        const idx = parts.indexOf('embed');
+        if(idx>=0 && parts[idx+1]) return parts[idx+1];
+      }catch(e){}
+      const m = url.match(/(?:v=|\/embed\/|\.be\/)([A-Za-z0-9_-]{5,})/);
+      return m?m[1]:null;
+    }
+
+    document.querySelectorAll('.video-thumb').forEach(function(a){
+      const href = a.getAttribute('href');
+      const id = getYouTubeID(href) || (a.querySelector('img')?.src.match(/vi\/([^/]+)\//)?.[1]);
+      const wrap = a.querySelector('.video-wrap');
+      if(!wrap) return;
+
+      // Añadir enlace visible para abrir en YouTube como fallback
+      const openLink = document.createElement('a');
+      openLink.className = 'video-open-link';
+      openLink.href = href;
+      openLink.target = '_blank';
+      openLink.rel = 'noopener noreferrer';
+      openLink.textContent = 'Ver en YouTube';
+      wrap.appendChild(openLink);
+
+      a.addEventListener('click', function(e){
+        e.preventDefault();
+        if(!id){ window.open(href,'_blank'); return; }
+        if(wrap.querySelector('iframe')) return; // ya cargado
+
+        const iframe = document.createElement('iframe');
+        iframe.src = 'https://www.youtube-nocookie.com/embed/' + id + '?rel=0&autoplay=1&controls=1';
+        iframe.setAttribute('frameborder','0');
+        iframe.setAttribute('allow','accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
+        iframe.setAttribute('allowfullscreen','');
+        iframe.style.position = 'absolute';
+        iframe.style.inset = '0';
+        iframe.style.width = '100%';
+        iframe.style.height = '100%';
+
+        const img = wrap.querySelector('img');
+        const btn = wrap.querySelector('.video-play-btn');
+        if(img) img.remove();
+        if(btn) btn.remove();
+        wrap.appendChild(iframe);
+      });
+    });
+  });
+  </script>
+  <script src="assets/site.js"></script>
+
+</body>
+</html>
+
